@@ -1,6 +1,6 @@
 class LinkedList
-  attr_accessor :head, :count
-  
+  attr_accessor :head, :count, :new_node, :next_node
+
   def initialize
     @head = nil
     @count = 0
@@ -22,6 +22,7 @@ class LinkedList
       current_node.next_node = Node.new(string)  
     end  
   end
+
   def count
     if @head
        current_node = @head
@@ -34,28 +35,64 @@ class LinkedList
         end
         #current_node.next_node = Node.new(string)
     end  
-    
-  
-  end
-  def to_string
-   @result = ''
-    #if @head
-      current_node = @head
-      #@result << current_node.data
-      
-    #else 
-     # @result
-      # until current_node.next_node.nil? + ''
-      #   current_node = current_node.next_node
-      #   @result.strip
-        
-      # end
-      until current_node.nil?
-       @result << current_node.data + " "
-       current_node = current_node.next_node
-      end 
-      #current_node.next_node = Node.new(string)  
-      @result.strip
   end
 
+  def to_string
+    @result = ''
+
+    current_node = @head
+  
+    until current_node.nil?
+      @result << current_node.data + " "
+      current_node = current_node.next_node
+    end 
+     
+    @result.strip
+  end
+
+  def prepend(string)
+    current_node = @head
+    @head = Node.new(string)
+    @head.next_node = current_node
+  end
+
+  def insert(position, string)
+    current_node = @head
+    (position - 1).times do
+      raise 'list not long enough' if current_node.nil?
+      current_node = current_node.next_node
+    end  
+    new_node = Node.new(string)
+    new_node.next_node = current_node.next_node
+    current_node.next_node = new_node
+  end
+
+
+  def find(position, total)
+      find_position = ''
+      current_node = @head
+      position.times do
+        raise 'list not long enough' if current_node.nil?
+        current_node = current_node.next_node 
+      end
+      total.times do
+        find_position << current_node.data + ' '
+        current_node = current_node.next_node 
+      end
+     find_position.strip
+  end
+
+  def includes_data?(string)
+    #value = []
+    @result = []
+    current_node = @head
+  
+    until current_node.nil?
+      return true if current_node.data == string
+      @result << current_node.data
+      current_node = current_node.next_node
+    end 
+    false
+    #@result.include?(string)
+  end
 end
