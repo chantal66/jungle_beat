@@ -113,5 +113,21 @@ class LinkedListTest < Minitest::Test
     assert true ,list.includes_data?('deep')
   end
 
+  def test_can_it_pop
+    list = LinkedList.new
+    list.append('deep')
+    list.append('woo')
+    list.append('shi')
+    list.append('shu')
+    list.append('blop')
+    list.to_string
+     
+    assert_equal 'blop', list.pop
+    assert_equal 'shu', list.pop
+    assert_equal 'deep woo shi',list.to_string
+    
+  
+  end
+
 
 end

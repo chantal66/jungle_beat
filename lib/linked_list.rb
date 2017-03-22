@@ -1,15 +1,12 @@
 class LinkedList
-  attr_accessor :head, :count, :new_node, :next_node
+  attr_accessor :head, :new_node, :next_node
 
   def initialize
     @head = nil
-    @count = 0
+    
      
   end
 
-  # def head
-  #   @head
-  # end
 
   def append(string)
     if @head.nil?
@@ -24,17 +21,16 @@ class LinkedList
   end
 
   def count
+    counter = 0
     if @head
        current_node = @head
-       @count +=1
-    else 
-        @count
+       counter = 1
         until current_node.next_node.nil?
           current_node = current_node.next_node
-          @count
+          counter += 1
         end
-        #current_node.next_node = Node.new(string)
     end  
+    counter
   end
 
   def to_string
@@ -59,7 +55,7 @@ class LinkedList
   def insert(position, string)
     current_node = @head
     (position - 1).times do
-      raise 'list not long enough' if current_node.nil?
+      raise 'your list not long enough' if current_node.nil?
       current_node = current_node.next_node
     end  
     new_node = Node.new(string)
@@ -67,12 +63,11 @@ class LinkedList
     current_node.next_node = new_node
   end
 
-
   def find(position, total)
       find_position = ''
       current_node = @head
       position.times do
-        raise 'list not long enough' if current_node.nil?
+        raise 'your list not long enough' if current_node.nil?
         current_node = current_node.next_node 
       end
       total.times do
@@ -93,6 +88,18 @@ class LinkedList
       current_node = current_node.next_node
     end 
     false
-    #@result.include?(string)
   end
+
+  def pop
+    previous_node = @head
+    current_node = @head.next_node
+
+    until current_node.next_node.nil?
+      previous_node = current_node
+      current_node = current_node.next_node
+    end  
+    previous_node.next_node = nil
+    current_node.data 
+    
+  end  
 end
