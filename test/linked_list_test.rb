@@ -59,9 +59,9 @@ class LinkedListTest < Minitest::Test
     
     list.append('deep')
     result_2 = list.to_string
-    #binding.pry
+    binding.pry
     assert_equal 'doop', result_1
-    assert_equal 'deep', result_2
+    assert_equal 'doop deep', result_2
   end
   
   

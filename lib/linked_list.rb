@@ -4,7 +4,7 @@ class LinkedList
   def initialize
     @head = nil
     @count = 0
-    
+     
   end
 
   # def head
@@ -38,21 +38,24 @@ class LinkedList
   
   end
   def to_string
-    @result = ''
-    if @head
+   @result = ''
+    #if @head
       current_node = @head
-      @result << current_node.data
+      #@result << current_node.data
       
-    else 
-      @result
-      until current_node.next_node.nil?  #I removed .next_node from my until given an error
-        current_node = current_node.next_node
-        @result << current_node.data 
+    #else 
+     # @result
+      # until current_node.next_node.nil? + ''
+      #   current_node = current_node.next_node
+      #   @result.strip
         
-      end
+      # end
+      until current_node.nil?
+       @result << current_node.data + " "
+       current_node = current_node.next_node
+      end 
       #current_node.next_node = Node.new(string)  
-      @result
-    end
+      @result.strip
   end
 
 end
