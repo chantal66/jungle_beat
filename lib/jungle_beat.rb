@@ -18,7 +18,7 @@ class JungleBeat < LinkedList
     beat_split[0..-1].each do |beat|
       @list.append(beat)
     end
-
+    binding.pry
   end
 
   def count
