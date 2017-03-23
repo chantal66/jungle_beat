@@ -26,7 +26,7 @@ class JungleBeatTest < Minitest::Test
     jb = JungleBeat.new
     jb.append("deep doo ditt")
     jb.append("woo hoo shu")
-    
+    binding.pry
     assert_equal 6, jb.count 
    
   end
