@@ -15,10 +15,10 @@ class JungleBeat < LinkedList
     beat_split = beat.split(' ')
     first = Node.new (beat_split[0])
     
-    beat_split[0..-1].each do |beat|
+    beat_split.each do |beat|
       @list.append(beat)
     end
-    binding.pry
+    beat_split
   end
 
   def count
