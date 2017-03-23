@@ -2,9 +2,7 @@ class LinkedList
   attr_accessor :head, :new_node, :next_node
 
   def initialize
-    @head = nil
-    
-     
+    @head = nil  
   end
 
 
