@@ -30,26 +30,13 @@ class JungleBeatTest < Minitest::Test
     assert_equal 6, jb.count 
    
   end
-  def test_it_sets_a_rate
+  def test_it_can_play
     
     jb = JungleBeat.new
     jb.append("deep doo ditt woo hoo shu")
-    jb.count
-    jb.list
     jb.play
-    jb.rate
-
-    assert_equal 500 , jb.rate
-    assert_equal 6, jb.count
+    assert_equal 'deep doo ditt woo hoo shu', jb.list.to_string
+    # assert_equal 500 , jb.rate
+     assert_equal 6, jb.count
   end
-  def test_knows_the_beat
-    skip
-    jb = JungleBeat.new
-    jb.append("deep doo ditt deep")
-    
-    assert_equal 4, jb.play
-  end
-
-
-
 end

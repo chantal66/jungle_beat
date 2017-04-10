@@ -12,10 +12,8 @@ class JungleBeat < LinkedList
   end
 
   def append(beat)
-    beat_split = beat.split(' ')
-    first = Node.new (beat_split[0])
-    
-    beat_split.map do |beat|
+    beat_split = beat.split(' ')    
+    beat_split.each do |beat|
       @list.append(beat)
     end
     beat_split.join(' ')
@@ -26,16 +24,7 @@ class JungleBeat < LinkedList
   end
 
   def play
-    puts `say -r #{rate} -v #{voice} #{beat}`
-    count
-  end
-
-  def rate
-    @rate = 500
-  end
-  def voice
-    @voice = 'Boing'
-    
+     `say #{@list.to_string}`
   end
 
 end
